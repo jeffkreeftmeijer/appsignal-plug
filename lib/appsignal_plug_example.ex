@@ -12,4 +12,6 @@ defmodule AppsignalPlugExample do
   defp slow do
     :timer.sleep(1000)
   end
+
+  use Appsignal.Plug
 end
