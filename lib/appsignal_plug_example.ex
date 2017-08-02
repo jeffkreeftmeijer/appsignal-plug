@@ -1,18 +1,15 @@
 defmodule AppsignalPlugExample do
-  @moduledoc """
-  Documentation for AppsignalPlugExample.
-  """
+  use Plug.Router
 
-  @doc """
-  Hello world.
+  plug :match
+  plug :dispatch
 
-  ## Examples
+  get "/" do
+    slow()
+    send_resp(conn, 200, "Welcome")
+  end
 
-      iex> AppsignalPlugExample.hello
-      :world
-
-  """
-  def hello do
-    :world
+  defp slow do
+    :timer.sleep(1000)
   end
 end

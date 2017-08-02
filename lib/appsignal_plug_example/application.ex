@@ -8,8 +8,7 @@ defmodule AppsignalPlugExample.Application do
   def start(_type, _args) do
     # List all child processes to be supervised
     children = [
-      # Starts a worker by calling: AppsignalPlugExample.Worker.start_link(arg)
-      # {AppsignalPlugExample.Worker, arg},
+      Plug.Adapters.Cowboy.child_spec(:http, AppsignalPlugExample, [], port: 8080)
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
