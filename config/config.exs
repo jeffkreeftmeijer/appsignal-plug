@@ -29,4 +29,11 @@ use Mix.Config
 #
 #     import_config "#{Mix.env}.exs"
 
+config :appsignal_plug_example, ecto_repos: [AppsignalPlugExample.Repo]
+
+config :appsignal_plug_example, AppsignalPlugExample.Repo,
+  adapter: Sqlite.Ecto2,
+  database: "appsignal_plug_example.sqlite3",
+  loggers: [Appsignal.Ecto, Ecto.LogEntry]
+
 import_config "appsignal.exs"
