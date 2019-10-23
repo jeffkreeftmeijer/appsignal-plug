@@ -8,6 +8,8 @@ defmodule AppsignalPlugExample do
   use Appsignal.Plug
 
   get "/" do
+    Appsignal.Transaction.set_action("GET /")
+
     slow()
     send_resp(conn, 200, "Welcome")
   end
