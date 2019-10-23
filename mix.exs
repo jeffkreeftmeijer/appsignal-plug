@@ -22,8 +22,7 @@ defmodule AppsignalPlugExample.Mixfile do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:cowboy, "~> 1.1.2"},
-      {:plug, "~> 1.3.4"},
+      {:plug_cowboy, "~> 2.0"},
       {:appsignal, "~> 1.0"}
     ]
   end

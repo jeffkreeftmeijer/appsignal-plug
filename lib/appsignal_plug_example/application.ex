@@ -6,9 +6,8 @@ defmodule AppsignalPlugExample.Application do
   use Application
 
   def start(_type, _args) do
-    # List all child processes to be supervised
     children = [
-      Plug.Adapters.Cowboy.child_spec(:http, AppsignalPlugExample, [], port: 8080)
+      {Plug.Cowboy, scheme: :http, plug: AppsignalPlugExample, options: [port: 4001]}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
